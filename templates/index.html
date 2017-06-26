@@ -1,23 +1,21 @@
 {% extends "base.html" %}
 {% block content %}
 <h2>Alyssa's Homework Signup</h2>
-    <form action="/welcome_page" method="post">
+    <form method="post">
             <p>
                 <label for="username">Username:</label>
-                <input name="username" type='text'>
-            </p>
-            <p>
+                <input name="username" type='text' value ='{{username}}'>
+            <p class="error">{{username_error}}</p>
                 <label for="password">Password:</label>
-                <input type="password" name="password">
-            </p>
-            <p>
+                <input type="password" name="password" value='{{password}}'>
+            <p class="error">{{password_error}}</p>
                 <label for="password2">Verfiy Password:</label>
-                <input type="password" name="password">
-            </p>
-            <p>
-                <label for="email">Email(If you want):</label>
-                <input name="email" type="text">
-            </p>
+                <input type="password" name="password2" value='{{password2}}'>
+            <p class="error">{{password2_error}}</p>
+                <label for="email">Email (If you want):</label>
+                <input name="email" type="text" value='{{email}}'>
+            <p class="error">{{email_error}}</p>
+            <input type="submit" value="Sign-Up"/>
         </form>
 
 {% endblock %}
