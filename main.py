@@ -39,6 +39,12 @@ def validate_entries():
     if field_empty(password):
         password_error = "Please create a password"
         password = ''
+    else:
+        if len(password) < 3 or len(password)>20:
+            password_error = "Password must be 3-20 characters"
+        elif " " in password:
+            password_error = "Your password cannot have a space, even though I think it's totally valid, the assignment says no."
+
 
     if field_empty(password2):
         password2_error = "Please verify your password"
