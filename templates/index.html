@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Alyssa's Homework Signup</h2>
+    <form action="/welcome_page" method="post">
+            <p>
+                <label for="username">Username:</label>
+                <input name="username" type='text'>
+            </p>
+            <p>
+                <label for="password">Password:</label>
+                <input type="password" name="password">
+            </p>
+            <p>
+                <label for="password2">Verfiy Password:</label>
+                <input type="password" name="password">
+            </p>
+            <p>
+                <label for="email">Email(If you want):</label>
+                <input name="email" type="text">
+            </p>
+        </form>
+
+{% endblock %}
