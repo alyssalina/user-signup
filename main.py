@@ -49,10 +49,12 @@ def validate_entries():
         password = ''
         password2 = ''
 
-    if (email.count('@') != 1)or (email.count('.') != 1):
-        email_error = "Please enter a valid email"
-    elif " " in email:
-        email_error = "Please enter a valid email"
+    if email != '':
+        #really, emails can have more than one "." but the assignment says only one...
+        if (email.count('@') != 1)or (email.count('.') != 1):
+            email_error = "Please enter a valid email"
+        elif " " in email:
+            email_error = "Please enter a valid email"
 
     #check if there is anything in the error strings
 
@@ -61,11 +63,11 @@ def validate_entries():
     else:
         return render_template('index.html',username_error=username_error, 
         password_error=password_error,
-        password2_error=password2_error,email_error=email_error)
+        password2_error=password2_error,email_error=email_error, username=username, email=email)
 
-@app.route('/welcome_page', methods=['POST'])
+@app.route('/welcome_page', methods=['POST','GET'])
 def welcome():
-    username = request.form['username']
+    username = request.args.get('username')
     return render_template('welcome_page.html', username=username)
 
         
